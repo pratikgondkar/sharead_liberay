@@ -1,8 +1,7 @@
 def call() {
     stage('playbook execution') {
-        sh '''
-        ansible-playbook -i /home/pratik/prometheusrole/tests/inventory /home/pratik/prometheusrole/tests/test.yml 
-        
-        '''
+        // Assuming the repository is in the Jenkins workspace
+        sh "ansible-playbook -i ${WORKSPACE}/prometheusrole/tests/inventory ${WORKSPACE}/prometheusrole/tests/test.yml"
     }
 }
+
